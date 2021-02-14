@@ -1,0 +1,4 @@
+excludeNet:
+  - 192.168.100.0/24 # exclude lxc network
+hosts:
+  {{ groups['hosts'] | map('extract', hostvars, 'ansible_all_ipv4_addresses') | flatten | to_nice_yaml() | trim | indent(2) }}

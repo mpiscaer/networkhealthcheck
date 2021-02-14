@@ -1,0 +1,20 @@
+---
+- name: make sure fping is installed
+  package:
+    name: fping
+    state: present
+- name: copy application
+  copy:
+    mode: 0770
+    dest: /tmp/networktests
+    src: networktests
+- name: drop config of networktests
+  template:
+    src: config-{{ ping_group }}.yml.j2
+    dest: /tmp/config.yml
+    owner: root
+    group: root
+    mode: '0600'
+- name: Test connectivity with networktests
+  command: /tmp/networktests
+  changed_when: False

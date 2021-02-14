@@ -1,0 +1,7 @@
+---
+
+- hosts: hosts
+  roles:
+    - role: networktests
+      vars:
+        ping_group: onlyhosts

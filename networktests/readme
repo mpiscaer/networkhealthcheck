@@ -1,0 +1,5 @@
+This openstack-ansible test the network, on connectivity and jumboframes.
+
+networktests is compled with pyinstaller with python3.
+
+
